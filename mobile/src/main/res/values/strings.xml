@@ -157,4 +157,8 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_dashboard_fragment">Dashboard fragment</string>
+    <string name="hello_tools_menu_fragment">Tools menu fragment</string>
 </resources>
