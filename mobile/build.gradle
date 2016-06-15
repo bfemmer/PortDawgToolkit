@@ -19,6 +19,13 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    maven {
+        url "http://dl.bintray.com/bfemmer/maven"
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     wearApp project(':wear')
@@ -27,4 +34,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:9.0.1'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:design:23.4.0'
+    compile 'com.bfemmer:date-codes:1.0.0'
 }
