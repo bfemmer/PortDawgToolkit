@@ -21,9 +21,8 @@ android {
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://dl.bintray.com/bfemmer/maven"
-    }
+    maven { url "http://dl.bintray.com/bfemmer/maven" }
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -35,4 +34,5 @@ dependencies {
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.bfemmer:date-codes:1.0.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.0.9'
 }
