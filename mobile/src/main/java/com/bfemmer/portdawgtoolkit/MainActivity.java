@@ -1,5 +1,5 @@
-/**
- * The MIT License (MIT)
+/*
+ The MIT License (MIT)
 
  Copyright (c) 2016 Bill Femmer
 
@@ -21,8 +21,10 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
  */
+
 package com.bfemmer.portdawgtoolkit;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -43,7 +45,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         DashboardFragment.OnFragmentInteractionListener,
-        ToolsMenuFragment.OnFragmentInteractionListener {
+        ToolsMenuFragment.OnFragmentInteractionListener,
+        SafetyFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Fragment dashboardFragment = new DashboardFragment();
+        Fragment dashboardFragment = new SafetyFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.flContent, dashboardFragment, null);
         fragmentTransaction.commit();
@@ -116,18 +119,20 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         Class fragmentClass = null;
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_dashboard) {
             fragmentClass = DashboardFragment.class;
-        } else if (id == R.id.nav_gallery) {
-            fragmentClass = ToolsMenuFragment.class;
-        } else if (id == R.id.nav_slideshow) {
-            fragmentClass = DashboardFragment.class;
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_readiness) {
+            Intent intent = new Intent(MainActivity.this, ReadinessActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.nav_safety) {
+            fragmentClass = SafetyFragment.class;
+        } else if (id == R.id.nav_tools) {
             fragmentClass = ToolsMenuFragment.class;
         } else if (id == R.id.nav_share) {
-            fragmentClass = DashboardFragment.class;
+            //fragmentClass = DashboardFragment.class;
         } else if (id == R.id.nav_send) {
-            fragmentClass = ToolsMenuFragment.class;
+            //fragmentClass = ToolsMenuFragment.class;
         }
 
         try {

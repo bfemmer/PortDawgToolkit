@@ -27,27 +27,21 @@ package com.bfemmer.portdawgtoolkit;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ToolsMenuFragment.OnFragmentInteractionListener} interface
+ * {@link SafetyFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ToolsMenuFragment#newInstance} factory method to
+ * Use the {@link SafetyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ToolsMenuFragment extends Fragment {
-    GridView gridView;
-
+public class SafetyFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,7 +53,7 @@ public class ToolsMenuFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public ToolsMenuFragment() {
+    public SafetyFragment() {
         // Required empty public constructor
     }
 
@@ -69,11 +63,11 @@ public class ToolsMenuFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ToolsMenuFragment.
+     * @return A new instance of fragment SafetyFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ToolsMenuFragment newInstance(String param1, String param2) {
-        ToolsMenuFragment fragment = new ToolsMenuFragment();
+    public static SafetyFragment newInstance(String param1, String param2) {
+        SafetyFragment fragment = new SafetyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -93,12 +87,8 @@ public class ToolsMenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view;
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_tools_menu, container, false);
-        gridView = (GridView) view.findViewById(R.id.grid_view);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_safety, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -123,58 +113,6 @@ public class ToolsMenuFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        final String[] gridTextArray = {
-                "Bullet Tracker",
-                "Pallet Modules",
-                "Date Codes",
-                "Risk Calculator",
-                "Center of Balance",
-                "Cube Calculator",
-                "Chain Restraint",
-                "Bay Inventory",
-                "Pallet Log"
-        } ;
-
-        int[] gridImageIdArray = {
-                R.drawable.doughnut_chart,
-                R.drawable.do_not_drop,
-                R.drawable.calendar,
-                R.drawable.combo_chart,
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_camera,
-                R.drawable.barcode_scanner,
-                R.drawable.ic_menu_camera
-        };
-
-        ToolGridAdapter adapter = new ToolGridAdapter(getContext(), gridTextArray, gridImageIdArray);
-
-//        gridView = (GridView) getView().findViewById(R.id.grid_view);
-        gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(getContext(),
-                        "You clicked " + gridTextArray[+ position], Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        gridView = null;
     }
 
     /**
