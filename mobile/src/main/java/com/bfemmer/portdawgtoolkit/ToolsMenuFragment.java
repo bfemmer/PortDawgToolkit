@@ -25,6 +25,7 @@
 package com.bfemmer.portdawgtoolkit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -131,25 +132,33 @@ public class ToolsMenuFragment extends Fragment {
         final String[] gridTextArray = {
                 "Bullet Tracker",
                 "Pallet Modules",
+                "Pallet Log",
+                "Pallet Checklist",
                 "Date Codes",
                 "Risk Calculator",
                 "Center of Balance",
                 "Cube Calculator",
                 "Chain Restraint",
+                "Ramp Briefing",
                 "Bay Inventory",
-                "Pallet Log"
+                "Hearing Safety",
+                "Physical Fitness"
         } ;
 
         int[] gridImageIdArray = {
-                R.drawable.doughnut_chart,
+                R.drawable.bullet,
                 R.drawable.do_not_drop,
+                R.drawable.saving_book,
+                R.drawable.to_do,
                 R.drawable.calendar,
                 R.drawable.combo_chart,
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_camera,
-                R.drawable.barcode_scanner,
-                R.drawable.ic_menu_camera
+                R.drawable.centre_of_gravity,
+                R.drawable.calculator,
+                R.drawable.sling_here,
+                R.drawable.checklist,
+                R.drawable.barcode_scanner_50,
+                R.drawable.headset,
+                R.drawable.rowing
         };
 
         ToolGridAdapter adapter = new ToolGridAdapter(getContext(), gridTextArray, gridImageIdArray);
@@ -160,8 +169,10 @@ public class ToolsMenuFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(getContext(),
-                        "You clicked " + gridTextArray[+ position], Toast.LENGTH_SHORT).show();
+                if (position == 1) {
+                    Intent intent = new Intent(getContext(), PalletModuleActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

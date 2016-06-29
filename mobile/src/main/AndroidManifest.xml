@@ -14,7 +14,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,22 +25,38 @@
         <activity
             android:name=".CBCalculatorActivity"
             android:label="@string/title_activity_cbcalculator"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bfemmer.portdawgtoolkit.MainActivity" />
         </activity>
         <activity
             android:name=".PalletModuleActivity"
             android:label="@string/title_activity_pallet_module"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bfemmer.portdawgtoolkit.MainActivity" />
         </activity>
         <activity
             android:name=".BulletTrackerActivity"
             android:label="@string/title_activity_bullet_tracker"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bfemmer.portdawgtoolkit.MainActivity" />
         </activity>
         <activity
             android:name=".DateCodeActivity"
             android:label="@string/title_activity_date_code"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bfemmer.portdawgtoolkit.MainActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"
