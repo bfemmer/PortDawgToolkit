@@ -142,23 +142,29 @@ public class ToolsMenuFragment extends Fragment {
                 "Ramp Briefing",
                 "Bay Inventory",
                 "Hearing Safety",
-                "Physical Fitness"
+                "Physical Fitness",
+                "Library",
+                "CCAF",
+                "SABC"
         } ;
 
         int[] gridImageIdArray = {
                 R.drawable.bullet,
-                R.drawable.do_not_drop,
+                R.drawable.pallet,
                 R.drawable.saving_book,
                 R.drawable.to_do,
                 R.drawable.calendar,
                 R.drawable.combo_chart,
                 R.drawable.centre_of_gravity,
-                R.drawable.calculator,
+                R.drawable.do_not_drop,
                 R.drawable.sling_here,
                 R.drawable.checklist,
                 R.drawable.barcode_scanner_50,
                 R.drawable.headset,
-                R.drawable.rowing
+                R.drawable.rowing,
+                R.drawable.book_shelf,
+                R.drawable.graduation_cap,
+                R.drawable.health_book
         };
 
         ToolGridAdapter adapter = new ToolGridAdapter(getContext(), gridTextArray, gridImageIdArray);
